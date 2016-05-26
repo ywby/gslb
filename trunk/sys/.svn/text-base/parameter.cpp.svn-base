@@ -1,0 +1,8 @@
+#include "maasys.h"
+
+namespace maasys {
+
+	sysParam sysParam::_instance;
+		
+}//namespace maasys
+

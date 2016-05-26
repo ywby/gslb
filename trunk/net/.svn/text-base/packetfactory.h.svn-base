@@ -1,0 +1,17 @@
+
+#ifndef MAANET_IPACKET_FACTORY_H_
+#define MAANET_IPACKET_FACTORY_H_
+
+namespace maanet {
+
+class packetFactory {
+	
+public:
+    virtual ~packetFactory() {};
+    virtual packet *createPacket(int pcode) = 0;
+};
+
+}//namespace maanet
+
+#endif//MAANET_IPACKET_FACTORY_H_
+

@@ -1,0 +1,140 @@
+#ifndef MAANET_PACKET_H_
+#define MAANET_PACKET_H_
+
+namespace maanet {
+
+#define TBNET_PACKET_FLAG 0x416e4574  // AnEt
+
+class packetHeader {  
+ 
+public:
+   	/* 
+	uint32_t _chid;         // 通道ID
+    	int _pcode;             // 数据包类型
+    	int _dataLen;           // 数据包body长度(除头信息外)
+	*/
+	uint32_t type; 		//指令类型
+	uint32_t dataLen;	//指令body长度
+	uint32_t appID;		//APPID
+	uint32_t userID;	//用户ID
+};
+
+class packet {
+    friend class packetQueue;
+
+public:
+    packet();
+    virtual ~packet();
+
+	/*
+    void setChannelId(uint32_t chid) {
+        _packetHeader._chid = chid;
+    }
+
+    uint32_t getChannelId() const {
+        return _packetHeader._chid;
+    }
+	*/
+
+	/*
+    void setPCode(int pcode) {
+        _packetHeader._pcode = pcode;
+    }
+
+    int getPCode() const {
+        return _packetHeader._pcode;
+    }
+	*/
+
+    packetHeader *getPacketHeader() {
+        return &_packetHeader;
+    }
+
+    /*
+     * 设置数据包header info
+     */
+    void setPacketHeader(packetHeader *header) {
+        if (header) {
+            memcpy(&_packetHeader, header, sizeof(packetHeader));
+        }
+    }
+
+    /*
+     * 释放自己
+     */
+    virtual void free() {
+        delete this;
+    }
+
+    /*
+     * 是否数据包
+     */
+    virtual bool isRegularPacket() {
+        return true;
+    }
+
+    /*
+     * 组装
+     *
+     * @param output: 目标buffer
+     * @return 是否成功
+     */
+    virtual bool encode(dataBuffer *output) = 0;
+
+    /*
+     * 解开
+     *
+     * @param input: 源buffer
+     * @param header: 数据包header
+     * @return 是否成功
+     */
+    virtual bool decode(dataBuffer *input, packetHeader *header) = 0;
+
+    /*
+     * 超时时间
+     */
+    int64_t getExpireTime() const {
+        return _expireTime;
+    }
+
+    /*
+     * 设置过期时间
+     *
+     * @param milliseconds 毫秒数, 0为永不过期
+     */
+    void setExpireTime(int milliseconds);
+
+    /*
+     * 设置Channel
+     */
+    //void setChannel(Channel *channel);
+
+    /*
+     * 得到Channel
+     */
+   	/* 
+	Channel *getChannel() const {
+        	return _channel;
+    	}
+	*/
+
+    /*
+     * 得到next
+     */
+    packet *getNext() const {
+        return _next;
+    }
+
+public:
+    packetHeader _packetHeader; // 数据包的头信息
+	
+protected:
+    int64_t _expireTime;        // 到期时间
+    //Channel *_channel;
+    packet *_next;              // 用在packetqueue链表
+};
+
+}//namespace maanet
+
+#endif//MAANET_PACKET_H_
+

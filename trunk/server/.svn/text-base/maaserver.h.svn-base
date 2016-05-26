@@ -1,0 +1,19 @@
+#include "define.h"
+
+namespace maaserver {
+
+class maaServer {
+
+public:
+	maaServer();
+	virtual ~maaServer();
+	
+	void start();
+	void stop();
+
+private:
+	maaService _maaservice;		
+};
+
+}//namespace maaserver
+

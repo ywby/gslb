@@ -1,0 +1,242 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APPEND_MODE	define.h	/^  APPEND_MODE = 4,$/;"	e	enum:maaserver::OperationMode
+BUFFER_SIZE	test/appsource.c	12;"	d	file:
+CC	makefile	/^CC = g++ -g  -lrt$/;"	m
+CFG_BUFFER_LEN	config.h	/^  static const int32_t CFG_BUFFER_LEN = 4096;$/;"	m	class:server::configure
+CFG_KEY_LEN	config.h	/^  static const int32_t CFG_KEY_LEN = 128;$/;"	m	class:server::configure
+CONFIG	config.h	56;"	d
+CONFIG_APP	config.h	15;"	d
+CONFIG_APP_INT	config.h	/^	CONFIG_APP_INT,$/;"	e	enum:server::__anon1
+CONFIG_SERVER	config.h	14;"	d
+CONFIG_SERVER_INT	config.h	/^	CONFIG_SERVER_INT = 0,$/;"	e	enum:server::__anon1
+CREATE_MESSAGE_MAP	message.h	/^	typedef hash_map<int32_t, message_handler_t> CREATE_MESSAGE_MAP;$/;"	t	namespace:server
+CREATE_MESSAGE_MAP_ITER	message.h	/^	typedef CREATE_MESSAGE_MAP::iterator CREATE_MESSAGE_MAP_ITER;$/;"	t	namespace:server
+CXXFLAGS	makefile	/^CXXFLAGS =  -O2 -Wall -Wno-deprecated  $/;"	m
+DEBUG1	test/client.c	17;"	d	file:
+DEFAULT_BLOCK_CACHE_ITEMS	define.h	/^static const int32_t DEFAULT_BLOCK_CACHE_ITEMS = 10000;$/;"	m	namespace:maaserver
+DEFAULT_BLOCK_CACHE_TIME	define.h	/^static const int32_t DEFAULT_BLOCK_CACHE_TIME = 5;$/;"	m	namespace:maaserver
+DISALLOW_COPY_AND_ASSIGN	define.h	49;"	d
+ERR_MSG_SIZE	define.h	/^static const int32_t ERR_MSG_SIZE = 512;$/;"	m	namespace:maaserver
+FILE_NAME_EXCEPT_SUFFIX_LEN	define.h	/^static const int32_t FILE_NAME_EXCEPT_SUFFIX_LEN = 12;$/;"	m	namespace:maaserver
+FILE_NAME_LEN	define.h	/^static const int32_t FILE_NAME_LEN = 18;$/;"	m	namespace:maaserver
+Func	func.h	/^class Func$/;"	c	namespace:server
+INT64_INT_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint64_t, uint32_t, __gnu_cxx ::hash<int> > INT64_INT_MAP; $/;"	t	namespace:server
+INT64_INT_MAP_ITER	interval.h	/^typedef INT64_INT_MAP::iterator INT64_INT_MAP_ITER;$/;"	t	namespace:server
+INT64_SIZE	define.h	/^static const int32_t INT64_SIZE = 8;$/;"	m	namespace:maaserver
+INT64_VINT_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint64_t, VINT, __gnu_cxx ::hash<int> > INT64_VINT_MAP; $/;"	t	namespace:server
+INT64_VINT_MAP_ITER	interval.h	/^typedef INT64_VINT_MAP::iterator INT64_VINT_MAP_ITER;$/;"	t	namespace:server
+INT_INT64_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint32_t, uint64_t> INT_INT64_MAP; $/;"	t	namespace:server
+INT_INT64_MAP_ITER	interval.h	/^typedef INT_INT64_MAP::iterator INT_INT64_MAP_ITER;$/;"	t	namespace:server
+INT_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint32_t, uint32_t> INT_MAP;$/;"	t	namespace:server
+INT_MAP_ITER	interval.h	/^typedef INT_MAP::iterator INT_MAP_ITER;$/;"	t	namespace:server
+INT_SIZE	define.h	/^static const int32_t INT_SIZE = 4;$/;"	m	namespace:maaserver
+INT_VINT64_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint32_t, VINT64> INT_VINT64_MAP; $/;"	t	namespace:server
+INT_VINT64_MAP_ITER	interval.h	/^typedef INT_VINT64_MAP::iterator INT_VINT64_MAP_ITER;$/;"	t	namespace:server
+IpAddr	define.h	/^struct IpAddr$/;"	s	namespace:maaserver
+LENGTH_OF_LISTEN_QUEUE	test/appsource.c	11;"	d	file:
+MAANET	makefile	/^MAANET = ..\/net$/;"	m
+MAASERVER_CONFIG_H_	config.h	2;"	d
+MAASERVER_DEFINE_H_	define.h	2;"	d
+MAASERVER_FUNC_H_	func.h	2;"	d
+MAASERVER_INTERVAL_H_	interval.h	2;"	d
+MAASERVER_MAAPACKETSTREAMER_H_	packetstreamer.h	2;"	d
+MAASERVER_MESSAGE_H_	message.h	2;"	d
+MAASYS	makefile	/^MAASYS = ..\/sys$/;"	m
+MAA_ERROR	define.h	/^static const int MAA_ERROR = -1;$/;"	m	namespace:maaserver
+MAA_MALLOC_MAX_SIZE	define.h	/^static const int64_t MAA_MALLOC_MAX_SIZE = 0x00A00000;\/\/10M$/;"	m	namespace:maaserver
+MAA_PACKET_HEADER_SIZE	message.h	/^static const uint32_t MAA_PACKET_HEADER_SIZE = sizeof(net::packetHeader);$/;"	m	namespace:server
+MAA_SUCCESS	define.h	/^static const int MAA_SUCCESS = 0;$/;"	m	namespace:maaserver
+MAX_DEV_NAME_LEN	interval.h	/^static const int32_t MAX_DEV_NAME_LEN = 64;$/;"	m	namespace:server
+MAX_FILE_NAME_LEN	define.h	/^static const int32_t MAX_FILE_NAME_LEN = 128;$/;"	m	namespace:maaserver
+MAX_READ_SIZE	interval.h	/^static const int32_t MAX_READ_SIZE = 1048576;$/;"	m	namespace:server
+MAX_RESPONSE_TIME	define.h	/^static const int32_t MAX_RESPONSE_TIME = 30000;$/;"	m	namespace:maaserver
+MSG_TYPE_AUTHEN	globalInformation.h	/^	MSG_TYPE_AUTHEN 	      = 1,  \/\/ 鉴权指令   与边缘节点服务器交互$/;"	e	enum:server::__anon3
+MSG_TYPE_HEARTBEAT	globalInformation.h	/^	MSG_TYPE_HEARTBEAT        = 2,  \/\/ 心跳指令   节点服务器内部交互$/;"	e	enum:server::__anon3
+MSG_TYPE_REQUESTINFO	globalInformation.h	/^	MSG_TYPE_REQUESTINFO      = 3,  \/\/ 数据请求指令 节点服务器内部交互$/;"	e	enum:server::__anon3
+MSG_TYPE_RESPONSEINFO	globalInformation.h	/^	MSG_TYPE_RESPONSEINFO     = 4,  \/\/ 数据响应指令  节点服务器内部交互$/;"	e	enum:server::__anon3
+MSG_TYPE_SHUTDOWN_ERROR	globalInformation.h	/^	MSG_TYPE_SHUTDOWN_ERROR   = 5,  \/\/ 连接异常 shutdown指令  关闭与边缘和源端节点相关的连接$/;"	e	enum:server::__anon3
+MSG_TYPE_SHUTDOWN_TIMEOUT	globalInformation.h	/^	MSG_TYPE_SHUTDOWN_TIMEOUT = 6   \/\/ 连接超时 shutdown指令  关闭与边缘和源端节点相关的连接$/;"	e	enum:server::__anon3
+NEWBLK_MODE	define.h	/^  NEWBLK_MODE = 16,$/;"	e	enum:maaserver::OperationMode
+NOLEASE_MODE	define.h	/^  NOLEASE_MODE = 32$/;"	e	enum:maaserver::OperationMode
+OperationMode	define.h	/^enum OperationMode$/;"	g	namespace:maaserver
+PATTERN_EDGE_NODE	globalInformation.h	/^	PATTERN_EDGE_NODE 	  = 1,  \/\/ 边缘节点服务器$/;"	e	enum:server::__anon2
+PATTERN_REGION_NODE	globalInformation.h	/^	PATTERN_REGION_NODE   = 2,  \/\/ 区域节点服务器$/;"	e	enum:server::__anon2
+PATTERN_SOURCE_NODE	globalInformation.h	/^	PATTERN_SOURCE_NODE   = 3   \/\/ 源端节点服务器$/;"	e	enum:server::__anon2
+PORT_PER_PROCESS	interval.h	/^static const int32_t PORT_PER_PROCESS = 2;$/;"	m	namespace:server
+PRI64_PREFIX	define.h	54;"	d
+PRI64_PREFIX	define.h	56;"	d
+READ_MODE	define.h	/^  READ_MODE = 1,$/;"	e	enum:maaserver::OperationMode
+SERVER_GLOBLEINFORMATION_H_	globalInformation.h	2;"	d
+SERVER_PORT	test/appsource.c	10;"	d	file:
+SERVER_SERVICE_H_	service.h	2;"	d
+STANDARD_SUFFIX_LEN	define.h	/^static const int32_t STANDARD_SUFFIX_LEN = 4;$/;"	m	namespace:maaserver
+STRING_MAP	interval.h	/^typedef std::map<std::string, std::string> STRING_MAP; $/;"	t	namespace:server
+STRING_MAP_ITER	interval.h	/^typedef STRING_MAP::iterator STRING_MAP_ITER;$/;"	t	namespace:server
+UNLINK_MODE	define.h	/^  UNLINK_MODE = 8,$/;"	e	enum:maaserver::OperationMode
+VINT	interval.h	/^typedef std::vector<int32_t> VINT;$/;"	t	namespace:server
+VINT32	interval.h	/^typedef std::vector<int32_t> VINT32;$/;"	t	namespace:server
+VINT64	interval.h	/^typedef std::vector<int64_t> VINT64;$/;"	t	namespace:server
+VUINT	interval.h	/^typedef std::vector<uint32_t> VUINT;$/;"	t	namespace:server
+VUINT32	interval.h	/^typedef std::vector<uint32_t> VUINT32;$/;"	t	namespace:server
+VUINT64	interval.h	/^typedef std::vector<uint64_t> VUINT64;$/;"	t	namespace:server
+WELCOME_MESSAGE	test/appsource.c	13;"	d	file:
+WRITE_MODE	define.h	/^  WRITE_MODE = 2,$/;"	e	enum:maaserver::OperationMode
+__gnu_cxx	define.h	/^namespace __gnu_cxx$/;"	n
+_configure	config.cpp	/^static configure _configure;$/;"	m	namespace:server	file:
+_crc32tab	func.h	/^static const uint32_t _crc32tab[] =$/;"	m	namespace:server
+_sizeunits	func.h	/^static const char _sizeunits[] = "KMGTP";$/;"	m	namespace:server
+addrToString	func.cpp	/^char* Func::addrToString(uint64_t ipport, char* str)$/;"	f	class:maaserver::Func
+addr_inc_port	func.cpp	/^uint64_t Func::addr_inc_port(const uint64_t ipport, const int32_t inc)$/;"	f	class:maaserver::Func
+appID	test/client.c	/^        uint32_t appID;         \/\/APPID$/;"	m	struct:packetHeader	file:
+assign_ip_addr	func.cpp	/^int Func::assign_ip_addr(const char* ifname, const char* ip, const char* mask)$/;"	f	class:maaserver::Func
+auto_free_	message.h	/^	bool auto_free_;$/;"	m	class:server::message
+check_load	config.cpp	/^int configure::check_load() {$/;"	f	class:server::configure
+check_pid	func.cpp	/^int Func::check_pid(const char* lock_file)$/;"	f	class:maaserver::Func
+clearConfigMap	config.cpp	/^void configure::clearConfigMap() {$/;"	f	class:server::configure
+configAppMap	config.h	/^  STRING_MAP configAppMap;$/;"	m	class:server::configure
+configAppMap	globalInformation.h	/^	STRING_MAP configAppMap;$/;"	m	struct:server::globalInformation
+configFileName	config.h	/^  std::string configFileName;$/;"	m	class:server::configure
+configServerMap	config.h	/^	STRING_MAP configServerMap;$/;"	m	class:server::configure
+configServerMap	globalInformation.h	/^	STRING_MAP configServerMap;$/;"	m	struct:server::globalInformation
+configure	config.cpp	/^configure::configure() {$/;"	f	class:server::configure
+configure	config.h	/^class configure {$/;"	c	namespace:server
+connection_	message.h	/^	maanet::connection* connection_;$/;"	m	class:server::message
+crc	func.cpp	/^uint32_t Func::crc(uint32_t crc, const char* data, const int32_t len)$/;"	f	class:maaserver::Func
+createPacket	packetstreamer.cpp	/^maanet::packet* maaPacketStreamer::createPacket(maanet::dataBuffer* input, maanet::packetHeader* header) {$/;"	f	class:maaserver::maaPacketStreamer
+curr_time	func.cpp	/^int64_t Func::curr_time()$/;"	f	class:maaserver::Func
+dataLen	test/client.c	/^        uint32_t dataLen;       \/\/指令body长度$/;"	m	struct:packetHeader	file:
+decode	message.h	/^	inline bool decode(net::dataBuffer* input, net::packetHeader* header) {$/;"	f	class:server::message
+decode	packetstreamer.cpp	/^maanet::packet* maaPacketStreamer::decode(maanet::dataBuffer* input, maanet::packetHeader* header ) {$/;"	f	class:maaserver::maaPacketStreamer
+encode	message.h	/^	inline bool encode(maanet::dataBuffer* output) {$/;"	f	class:server::message
+encode	packetstreamer.cpp	/^bool maaPacketStreamer::encode(maanet::packet* packet, maanet::dataBuffer* output) {$/;"	f	class:maaserver::maaPacketStreamer
+format_size	func.cpp	/^string Func::format_size(const int64_t c)$/;"	f	class:maaserver::Func
+free	message.h	/^	inline void free() {$/;"	f	class:server::message
+gDeleteA	interval.h	/^template <typename Type> inline void gDeleteA(Type *&rp) {$/;"	f	namespace:server
+getAppID	message.h	/^	inline int getAppID() {$/;"	f	class:server::message
+getConfigMap	config.cpp	/^STRING_MAP configure::getConfigMap(const int section) {$/;"	f	class:server::configure
+getConnection	message.h	/^	inline maanet::connection* getConnection() const {$/;"	f	class:server::message
+getDataLen	message.h	/^	inline int32_t getDataLen() {$/;"	f	class:server::message
+getMessageType	message.h	/^	inline int32_t getMessageType() const {$/;"	f	class:server::message
+getPacketInfo	packetstreamer.cpp	/^bool maaPacketStreamer::getPacketInfo(maanet::dataBuffer* input, maanet::packetHeader* header, bool* broken) {$/;"	f	class:maaserver::maaPacketStreamer
+getRawData	message.h	/^	inline char* getRawData() const {$/;"	f	class:server::message
+getRawSize	message.h	/^	inline int32_t getRawSize() const {$/;"	f	class:server::message
+getUserID	message.h	/^	inline int getUserID() {$/;"	f	class:server::message
+get_addr	func.cpp	/^uint32_t Func::get_addr(const char* ip)$/;"	f	class:maaserver::Func
+get_base_name	func.cpp	/^int Func::get_base_name(char* path, char* dirpath)$/;"	f	class:maaserver::Func
+get_config_file_name	config.h	/^	std::string get_config_file_name() const {$/;"	f	class:server::configure
+get_configure	config.cpp	/^configure& configure::get_configure() {$/;"	f	class:server::configure
+get_disk_usage	func.cpp	/^int Func::get_disk_usage(const char* path, int64_t* used_bytes, int64_t* total_bytes)$/;"	f	class:maaserver::Func
+get_global_info	service.h	/^	globalInformation* get_global_info() $/;"	f	class:server::service
+get_int32	message.h	/^	inline int get_int32(char** data, int32_t* len, int32_t* value) {$/;"	f	class:server::message
+get_int64	message.h	/^	inline int get_int64(char** data, int32_t* len, int64_t* value) {$/;"	f	class:server::message
+get_int_value	config.cpp	/^int configure::get_int_value(const int section, const std::string& key, const int d) {$/;"	f	class:server::configure
+get_lan	func.cpp	/^uint32_t Func::get_lan(const uint64_t ipport, const uint32_t ipmask)$/;"	f	class:maaserver::Func
+get_load_avg	func.cpp	/^int Func::get_load_avg()$/;"	f	class:maaserver::Func
+get_local_addr	func.cpp	/^uint32_t Func::get_local_addr(const char* dev_name)$/;"	f	class:maaserver::Func
+get_object	message.h	/^	inline int get_object(char** data, int32_t* len, void** object, int32_t obj_len) {$/;"	f	class:server::message
+get_object_copy	message.h	/^	inline int get_object_copy(char** data, int32_t* len, void* object, int32_t obj_len) {$/;"	f	class:server::message
+get_packet_queue_thread	service.h	/^	net::packetQueueThread* get_packet_queue_thread() $/;"	f	class:server::service
+get_string	message.h	/^	inline int get_string(char** data, int32_t* len, char** value) {$/;"	f	class:server::message
+get_string_len	message.h	/^	inline int get_string_len(const char* value) const {$/;"	f	class:server::message
+get_string_value	config.cpp	/^char* configure::get_string_value(const int section, const std::string& key, char *d) {$/;"	f	class:server::configure
+get_uint32	message.h	/^	inline int get_uint32(char** data, int32_t* len, uint32_t* value) {$/;"	f	class:server::message
+get_vint32	message.h	/^	inline int get_vint32(char** data, int32_t* len, common::VUINT32& value) {$/;"	f	class:server::message
+get_vint64	message.h	/^	inline int get_vint64(char** data, int32_t* len, common::VUINT64& value) {$/;"	f	class:server::message
+get_vint64_len	message.h	/^	inline int get_vint64_len(common::VUINT64& value) const {$/;"	f	class:server::message
+get_vint_len	message.h	/^	inline int get_vint_len(const common::VUINT32& value) const {$/;"	f	class:server::message
+globalInformation	globalInformation.h	/^struct globalInformation {$/;"	s	namespace:server
+global_info	service.h	/^	globalInformation global_info;$/;"	m	class:server::service
+handlePacket	service.cpp	/^net::packetHandler::HPRetCode service::handlePacket(maanet::connection *_connection, maanet::packet *_packet) $/;"	f	class:server::service
+handlePacketQueue	service.cpp	/^bool service::handlePacketQueue(net::packet *_packet,void *) $/;"	f	class:server::service
+hash	define.h	/^  template<> struct hash<uint64_t>$/;"	s	namespace:__gnu_cxx
+hour_range	func.cpp	/^bool Func::hour_range(int min, int max)$/;"	f	class:maaserver::Func
+initGlobalInfo	service.cpp	/^int service::initGlobalInfo() $/;"	f	class:server::service
+initHandleThreads	service.cpp	/^void service::initHandleThreads() $/;"	f	class:server::service
+ipPort	globalInformation.h	/^	char 	ipPort[32];$/;"	m	struct:server::globalInformation
+ip_	define.h	/^  uint32_t ip_;$/;"	m	struct:maaserver::IpAddr
+isLoad	config.h	/^  bool isLoad;$/;"	m	class:server::configure
+is_local_addr	func.cpp	/^int Func::is_local_addr(const uint32_t ip)$/;"	f	class:maaserver::Func
+load	config.cpp	/^int configure::load(const std::string& filename) {$/;"	f	class:server::configure
+maaPacketStreamer	packetstreamer.cpp	/^maaPacketStreamer::maaPacketStreamer() {$/;"	f	class:maaserver::maaPacketStreamer
+maaPacketStreamer	packetstreamer.cpp	/^maaPacketStreamer::maaPacketStreamer(maanet::packetFactory* factory) $/;"	f	class:maaserver::maaPacketStreamer
+maaPacketStreamer	packetstreamer.h	/^class maaPacketStreamer: public maanet::packetStreamer {$/;"	c	namespace:maaserver
+maaserver	define.h	/^namespace maaserver {$/;"	n
+maaserver	func.cpp	/^namespace maaserver {$/;"	n	file:
+maaserver	packetstreamer.cpp	/^namespace maaserver {$/;"	n	file:
+maaserver	packetstreamer.h	/^namespace maaserver {$/;"	n
+main	server.cpp	/^int main(int argc , char *argv[])$/;"	f
+main	test/appsource.c	/^int main(int argc, char** argv)  $/;"	f
+main	test/client.c	/^int main()  $/;"	f
+make_directory	func.cpp	/^int Func::make_directory(char* dirpath)$/;"	f	class:maaserver::Func
+message	message.h	/^	message() $/;"	f	class:server::message
+message	message.h	/^    message(message *p1) { $/;"	f	class:server::message
+message	message.h	/^class message: public net::packet {$/;"	c	namespace:server
+message_handler_t	message.h	/^	typedef message* (*message_handler_t)(int32_t);$/;"	t	namespace:server
+objects	makefile	/^objects = server.o service.o packetstreamer.o transport.o epollsocketevent.o tcpcomponent.o tcpaccepter.o tcpconnection.o iocomponent.o serversocket.o socketevent.o connection.o socket.o packetqueuethread.o packetqueue.o packet.o defaultrunnable.o netutil.o parameter.o timeutil.o config.o func.o log.o warningBuffer.o $/;"	m
+operator ()	define.h	/^    uint64_t operator()(uint64_t __x) const$/;"	f	struct:__gnu_cxx::hash
+packetHeader	test/client.c	/^typedef struct packetHeader {$/;"	s	file:
+packetHeader	test/client.c	/^}packetHeader;$/;"	t	typeref:struct:packetHeader	file:
+parse_special_ds	message.h	/^	static bool parse_special_ds(common::VUINT64& ds, int32_t& version, int32_t& lease) {$/;"	f	class:server::message
+parse_value	config.cpp	/^int configure::parse_value(char* str, char* key, char* val) {$/;"	f	class:server::configure
+pattern	globalInformation.h	/^	int 	pattern;$/;"	m	struct:server::globalInformation
+port_	define.h	/^  int32_t port_;$/;"	m	struct:maaserver::IpAddr
+raw_data_	message.h	/^	char* raw_data_;$/;"	m	class:server::message
+raw_size_	message.h	/^	int32_t raw_size_;$/;"	m	class:server::message
+read_task_queue_size_	service.h	/^	int32_t read_task_queue_size_;$/;"	m	class:server::service
+replyMessage	message.h	/^	inline void replyMessage(message* _message) {$/;"	f	class:server::message
+run	service.cpp	/^void service::run(maasys::cThread *thread, void *arg) $/;"	f	class:server::service
+safe_malloc	func.cpp	/^char* Func::safe_malloc(const int32_t len, char* data)$/;"	f	class:maaserver::Func
+server	config.cpp	/^namespace server {$/;"	n	file:
+server	config.h	/^namespace server {$/;"	n
+server	func.h	/^namespace server $/;"	n
+server	globalInformation.h	/^namespace server {$/;"	n
+server	interval.h	/^namespace server {$/;"	n
+server	message.h	/^namespace server {$/;"	n
+server	server.cpp	/^    server::server() $/;"	f	class:server::server
+server	server.cpp	/^namespace server $/;"	n	file:
+server	service.cpp	/^namespace server {$/;"	n	file:
+server	service.h	/^namespace server {$/;"	n
+service	service.cpp	/^service::service() $/;"	f	class:server::service
+service	service.h	/^class service:  public net::serverAdapter, $/;"	c	namespace:server
+setAppID	message.h	/^	inline void setAppID(const int32_t id) {$/;"	f	class:server::message
+setAutoFree	message.h	/^	inline void setAutoFree(bool auto_free) {$/;"	f	class:server::message
+setConnection	message.h	/^	inline void setConnection(maanet::connection* _connection) {$/;"	f	class:server::message
+setDataLen	message.h	/^	inline void setDataLen(const int32_t len) {$/;"	f	class:server::message
+setMessageType	message.h	/^	inline void setMessageType(const int32_t type) {$/;"	f	class:server::message
+setUserID	message.h	/^	inline void setUserID(const int32_t id) {$/;"	f	class:server::message
+set_int32	message.h	/^	inline int set_int32(char** data, int32_t* len, int32_t status_) {$/;"	f	class:server::message
+set_int64	message.h	/^	inline int set_int64(char** data, int32_t* len, int64_t value) {$/;"	f	class:server::message
+set_object	message.h	/^	inline int set_object(char** data, int32_t* len, void* value, int32_t length) {$/;"	f	class:server::message
+set_packet_factory	packetstreamer.cpp	/^void maaPacketStreamer::set_packet_factory(maanet::packetFactory* factory) {$/;"	f	class:maaserver::maaPacketStreamer
+set_string	message.h	/^	inline int set_string(char** data, int32_t* len, char* str_) {$/;"	f	class:server::message
+set_vint32	message.h	/^	inline int32_t set_vint32(char** data, int32_t* len, common::VUINT32& value) {$/;"	f	class:server::message
+set_vint64	message.h	/^	inline int set_vint64(char** data, int32_t* len, common::VUINT64& value) {$/;"	f	class:server::message
+sleep	func.cpp	/^void Func::sleep(const float f_heart_interval, const int32_t* stop)$/;"	f	class:maaserver::Func
+split_string	func.cpp	/^int32_t Func::split_string(const char* line, const char del, std::vector<std::string>& fields)$/;"	f	class:maaserver::Func
+start	server.cpp	/^    void server::start() $/;"	f	class:server::server
+start	service.cpp	/^int service::start() $/;"	f	class:server::service
+stop	server.cpp	/^    void server::stop() $/;"	f	class:server::server
+stop	service.cpp	/^int service::stop() $/;"	f	class:server::service
+str_to_addr	func.cpp	/^uint64_t Func::str_to_addr(const char* ip, const int32_t port)$/;"	f	class:maaserver::Func
+str_to_lower	func.cpp	/^char* Func::str_to_lower(char* psz_buf)$/;"	f	class:maaserver::Func
+str_to_upper	func.cpp	/^char* Func::str_to_upper(char* psz_buf)$/;"	f	class:maaserver::Func
+streamer_	service.h	/^	PacketStreamer streamer_;$/;"	m	class:server::service
+subright	func.cpp	/^char* Func::subright(char* dst, char* src, int32_t n)$/;"	f	class:maaserver::Func
+taskQueueThread_	service.h	/^    net::packetQueueThread taskQueueThread_;$/;"	m	class:server::service
+time_to_str	func.cpp	/^string Func::time_to_str(time_t t, int f)$/;"	f	class:maaserver::Func
+transport_	service.h	/^    net::transport transport_;$/;"	m	class:server::service
+type	test/client.c	/^        uint32_t type;          \/\/指令类型$/;"	m	struct:packetHeader	file:
+userID	test/client.c	/^        uint32_t userID;        \/\/用户ID$/;"	m	struct:packetHeader	file:
+wait	service.cpp	/^int service::wait() $/;"	f	class:server::service
+write_pid	func.cpp	/^int Func::write_pid(const char* lock_file)$/;"	f	class:maaserver::Func
+write_task_queue_size_	service.h	/^    int32_t write_task_queue_size_;$/;"	m	class:server::service
+~configure	config.cpp	/^configure::~configure() {$/;"	f	class:server::configure
+~maaPacketStreamer	packetstreamer.cpp	/^maaPacketStreamer::~maaPacketStreamer() {$/;"	f	class:maaserver::maaPacketStreamer
+~message	message.h	/^	~message() {$/;"	f	class:server::message
+~server	server.cpp	/^    server::~server() $/;"	f	class:server::server
+~service	service.cpp	/^service::~service() $/;"	f	class:server::service

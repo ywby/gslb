@@ -1,0 +1,224 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APPEND_MODE	define.h	/^      APPEND_MODE = 4,$/;"	e	enum:maaserver::OperationMode
+CC	makefile	/^CC = g++ -g  -lrt$/;"	m
+CFG_BUFFER_LEN	config.h	/^      	static const int32_t CFG_BUFFER_LEN = 4096;$/;"	m	class:maaserver::configure
+CFG_KEY_LEN	config.h	/^     	static const int32_t CFG_KEY_LEN = 128;$/;"	m	class:maaserver::configure
+CONFIG	config.h	53;"	d
+CONFIG_APP	config.h	15;"	d
+CONFIG_APP_INT	config.h	/^	CONFIG_APP_INT,$/;"	e	enum:maaserver::__anon1
+CONFIG_SERVER	config.h	14;"	d
+CONFIG_SERVER_INT	config.h	/^	CONFIG_SERVER_INT = 0,$/;"	e	enum:maaserver::__anon1
+CREATE_MESSAGE_MAP	message.h	/^	typedef hash_map<int32_t, message_handler_t> CREATE_MESSAGE_MAP;$/;"	t	namespace:maaserver
+CREATE_MESSAGE_MAP_ITER	message.h	/^	typedef CREATE_MESSAGE_MAP::iterator CREATE_MESSAGE_MAP_ITER;$/;"	t	namespace:maaserver
+CXXFLAGS	makefile	/^CXXFLAGS =  -O2 -Wall -Wno-deprecated  $/;"	m
+DEFAULT_BLOCK_CACHE_ITEMS	define.h	/^    static const int32_t DEFAULT_BLOCK_CACHE_ITEMS = 10000;$/;"	m	namespace:maaserver
+DEFAULT_BLOCK_CACHE_TIME	define.h	/^    static const int32_t DEFAULT_BLOCK_CACHE_TIME = 5;$/;"	m	namespace:maaserver
+DISALLOW_COPY_AND_ASSIGN	define.h	47;"	d
+ERR_MSG_SIZE	define.h	/^    static const int32_t ERR_MSG_SIZE = 512;$/;"	m	namespace:maaserver
+FILE_NAME_EXCEPT_SUFFIX_LEN	define.h	/^    static const int32_t FILE_NAME_EXCEPT_SUFFIX_LEN = 12;$/;"	m	namespace:maaserver
+FILE_NAME_LEN	define.h	/^    static const int32_t FILE_NAME_LEN = 18;$/;"	m	namespace:maaserver
+Func	func.h	/^    class Func$/;"	c	namespace:maaserver
+INT64_INT_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint64_t, uint32_t, __gnu_cxx ::hash<int> > INT64_INT_MAP; $/;"	t	namespace:maaserver
+INT64_INT_MAP_ITER	interval.h	/^typedef INT64_INT_MAP::iterator INT64_INT_MAP_ITER;$/;"	t	namespace:maaserver
+INT64_SIZE	define.h	/^    static const int32_t INT64_SIZE = 8;$/;"	m	namespace:maaserver
+INT64_VINT_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint64_t, VINT, __gnu_cxx ::hash<int> > INT64_VINT_MAP; $/;"	t	namespace:maaserver
+INT64_VINT_MAP_ITER	interval.h	/^typedef INT64_VINT_MAP::iterator INT64_VINT_MAP_ITER;$/;"	t	namespace:maaserver
+INT_INT64_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint32_t, uint64_t> INT_INT64_MAP; $/;"	t	namespace:maaserver
+INT_INT64_MAP_ITER	interval.h	/^typedef INT_INT64_MAP::iterator INT_INT64_MAP_ITER;$/;"	t	namespace:maaserver
+INT_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint32_t, uint32_t> INT_MAP;$/;"	t	namespace:maaserver
+INT_MAP_ITER	interval.h	/^typedef INT_MAP::iterator INT_MAP_ITER;$/;"	t	namespace:maaserver
+INT_SIZE	define.h	/^    static const int32_t INT_SIZE = 4;$/;"	m	namespace:maaserver
+INT_VINT64_MAP	interval.h	/^typedef __gnu_cxx ::hash_map<uint32_t, VINT64> INT_VINT64_MAP; $/;"	t	namespace:maaserver
+INT_VINT64_MAP_ITER	interval.h	/^typedef INT_VINT64_MAP::iterator INT_VINT64_MAP_ITER;$/;"	t	namespace:maaserver
+IpAddr	define.h	/^    struct IpAddr$/;"	s	namespace:maaserver
+MAANET	makefile	/^MAANET = ..\/maanet$/;"	m
+MAASERVER_CONFIG_H_	config.h	2;"	d
+MAASERVER_DEFINE_H_	define.h	2;"	d
+MAASERVER_FUNC_H_	func.h	2;"	d
+MAASERVER_GLOBLEINFORMATION_H_	globalInformation.h	2;"	d
+MAASERVER_INTERVAL_H_	interval.h	2;"	d
+MAASERVER_MAAPACKETSTREAMER_H_	packetstreamer.h	2;"	d
+MAASERVER_MAASERVICE_H_	maaservice.h	2;"	d
+MAASERVER_MESSAGE_H_	message.h	2;"	d
+MAASYS	makefile	/^MAASYS = ..\/maasys$/;"	m
+MAA_ERROR	define.h	/^    static const int MAA_ERROR = -1;$/;"	m	namespace:maaserver
+MAA_MALLOC_MAX_SIZE	define.h	/^    static const int64_t MAA_MALLOC_MAX_SIZE = 0x00A00000;\/\/10M$/;"	m	namespace:maaserver
+MAA_PACKET_HEADER_SIZE	message.h	/^static const uint32_t MAA_PACKET_HEADER_SIZE = sizeof(maanet::packetHeader);$/;"	m	namespace:maaserver
+MAA_SUCCESS	define.h	/^    static const int MAA_SUCCESS = 0;$/;"	m	namespace:maaserver
+MAX_DEV_NAME_LEN	interval.h	/^static const int32_t MAX_DEV_NAME_LEN = 64;$/;"	m	namespace:maaserver
+MAX_FILE_NAME_LEN	define.h	/^    static const int32_t MAX_FILE_NAME_LEN = 128;$/;"	m	namespace:maaserver
+MAX_READ_SIZE	interval.h	/^static const int32_t MAX_READ_SIZE = 1048576;$/;"	m	namespace:maaserver
+MAX_RESPONSE_TIME	define.h	/^    static const int32_t MAX_RESPONSE_TIME = 30000;$/;"	m	namespace:maaserver
+NEWBLK_MODE	define.h	/^      NEWBLK_MODE = 16,$/;"	e	enum:maaserver::OperationMode
+NOLEASE_MODE	define.h	/^      NOLEASE_MODE = 32$/;"	e	enum:maaserver::OperationMode
+OperationMode	define.h	/^    enum OperationMode$/;"	g	namespace:maaserver
+PORT_PER_PROCESS	interval.h	/^static const int32_t PORT_PER_PROCESS = 2;$/;"	m	namespace:maaserver
+PRI64_PREFIX	define.h	52;"	d
+PRI64_PREFIX	define.h	54;"	d
+READ_MODE	define.h	/^      READ_MODE = 1,$/;"	e	enum:maaserver::OperationMode
+STANDARD_SUFFIX_LEN	define.h	/^    static const int32_t STANDARD_SUFFIX_LEN = 4;$/;"	m	namespace:maaserver
+STRING_MAP	interval.h	/^typedef std::map<std::string, std::string> STRING_MAP; $/;"	t	namespace:maaserver
+STRING_MAP_ITER	interval.h	/^typedef STRING_MAP::iterator STRING_MAP_ITER;$/;"	t	namespace:maaserver
+UNLINK_MODE	define.h	/^      UNLINK_MODE = 8,$/;"	e	enum:maaserver::OperationMode
+VINT	interval.h	/^typedef std::vector<int32_t> VINT;$/;"	t	namespace:maaserver
+VINT32	interval.h	/^typedef std::vector<int32_t> VINT32;$/;"	t	namespace:maaserver
+VINT64	interval.h	/^typedef std::vector<int64_t> VINT64;$/;"	t	namespace:maaserver
+VUINT	interval.h	/^typedef std::vector<uint32_t> VUINT;$/;"	t	namespace:maaserver
+VUINT32	interval.h	/^typedef std::vector<uint32_t> VUINT32;$/;"	t	namespace:maaserver
+VUINT64	interval.h	/^typedef std::vector<uint64_t> VUINT64;$/;"	t	namespace:maaserver
+WRITE_MODE	define.h	/^      WRITE_MODE = 2,$/;"	e	enum:maaserver::OperationMode
+__gnu_cxx	define.h	/^namespace __gnu_cxx$/;"	n
+_configure	config.cpp	/^	static configure _configure;$/;"	m	namespace:maaserver	file:
+_crc32tab	func.h	/^    static const uint32_t _crc32tab[] =$/;"	m	namespace:maaserver
+_maaservice	maaserver.h	/^	maaService _maaservice;		$/;"	m	class:maaserver::maaServer
+_sizeunits	func.h	/^    static const char _sizeunits[] = "KMGTP";$/;"	m	namespace:maaserver
+addrToString	func.cpp	/^    char* Func::addrToString(uint64_t ipport, char* str)$/;"	f	class:maaserver::Func
+addr_inc_port	func.cpp	/^    uint64_t Func::addr_inc_port(const uint64_t ipport, const int32_t inc)$/;"	f	class:maaserver::Func
+appidSourceMap	maaservice.h	/^	std::map<int , char *> appidSourceMap; $/;"	m	class:maaserver::maaService
+appidTcpMap	maaservice.h	/^	std::map<int , maanet::connection *> appidTcpMap; $/;"	m	class:maaserver::maaService
+assign_ip_addr	func.cpp	/^    int Func::assign_ip_addr(const char* ifname, const char* ip, const char* mask)$/;"	f	class:maaserver::Func
+auto_free_	message.h	/^	bool auto_free_;$/;"	m	class:maaserver::message
+check_load	config.cpp	/^    	int configure::check_load() {$/;"	f	class:maaserver::configure
+check_pid	func.cpp	/^  int Func::check_pid(const char* lock_file)$/;"	f	class:maaserver::Func
+clearConfigMap	config.cpp	/^	void configure::clearConfigMap() {$/;"	f	class:maaserver::configure
+configAppMap	config.h	/^      	STRING_MAP configAppMap;$/;"	m	class:maaserver::configure
+configAppMap	globalInformation.h	/^	STRING_MAP configAppMap;$/;"	m	struct:maaserver::globalInformation
+configFileName	config.h	/^      	std::string configFileName;$/;"	m	class:maaserver::configure
+configServerMap	config.h	/^	STRING_MAP configServerMap;$/;"	m	class:maaserver::configure
+configServerMap	globalInformation.h	/^	STRING_MAP configServerMap;$/;"	m	struct:maaserver::globalInformation
+configure	config.cpp	/^    	configure::configure() {$/;"	f	class:maaserver::configure
+configure	config.h	/^class configure$/;"	c	namespace:maaserver
+connection_	message.h	/^	maanet::connection* connection_;$/;"	m	class:maaserver::message
+crc	func.cpp	/^    uint32_t Func::crc(uint32_t crc, const char* data, const int32_t len)$/;"	f	class:maaserver::Func
+createPacket	packetstreamer.cpp	/^	maanet::packet* maaPacketStreamer::createPacket(maanet::dataBuffer* input, maanet::packetHeader* header) {$/;"	f	class:maaserver::maaPacketStreamer
+curr_time	func.cpp	/^  int64_t Func::curr_time()$/;"	f	class:maaserver::Func
+decode	message.h	/^	inline bool decode(maanet::dataBuffer* input, maanet::packetHeader* header){$/;"	f	class:maaserver::message
+decode	packetstreamer.cpp	/^	maanet::packet* maaPacketStreamer::decode(maanet::dataBuffer* input, maanet::packetHeader* header ) {$/;"	f	class:maaserver::maaPacketStreamer
+encode	message.h	/^	inline bool encode(maanet::dataBuffer* output){$/;"	f	class:maaserver::message
+encode	packetstreamer.cpp	/^	bool maaPacketStreamer::encode(maanet::packet* packet, maanet::dataBuffer* output) {$/;"	f	class:maaserver::maaPacketStreamer
+format_size	func.cpp	/^    string Func::format_size(const int64_t c)$/;"	f	class:maaserver::Func
+free	message.h	/^	inline void free(){$/;"	f	class:maaserver::message
+gDeleteA	interval.h	/^template <typename Type> inline void gDeleteA(Type *&rp){$/;"	f	namespace:maaserver
+getAppID	message.h	/^	inline int getAppID(){$/;"	f	class:maaserver::message
+getConfigMap	config.cpp	/^	STRING_MAP configure::getConfigMap(const int section) {$/;"	f	class:maaserver::configure
+getConnection	message.h	/^	inline maanet::connection* getConnection() const{$/;"	f	class:maaserver::message
+getDataLen	message.h	/^	inline int32_t getDataLen(){$/;"	f	class:maaserver::message
+getMessageType	message.h	/^	inline int32_t getMessageType() const{$/;"	f	class:maaserver::message
+getPacketInfo	packetstreamer.cpp	/^	bool maaPacketStreamer::getPacketInfo(maanet::dataBuffer* input, maanet::packetHeader* header, bool* broken){$/;"	f	class:maaserver::maaPacketStreamer
+getRawData	message.h	/^	inline char* getRawData() const{$/;"	f	class:maaserver::message
+getRawSize	message.h	/^	inline int32_t getRawSize() const{$/;"	f	class:maaserver::message
+getUserID	message.h	/^	inline int getUserID() {$/;"	f	class:maaserver::message
+get_addr	func.cpp	/^    uint32_t Func::get_addr(const char* ip)$/;"	f	class:maaserver::Func
+get_base_name	func.cpp	/^    int Func::get_base_name(char* path, char* dirpath)$/;"	f	class:maaserver::Func
+get_config_file_name	config.h	/^	std::string get_config_file_name() const {$/;"	f	class:maaserver::configure
+get_configure	config.cpp	/^    	configure& configure::get_configure(){$/;"	f	class:maaserver::configure
+get_disk_usage	func.cpp	/^    int Func::get_disk_usage(const char* path, int64_t* used_bytes, int64_t* total_bytes)$/;"	f	class:maaserver::Func
+get_global_info	maaservice.h	/^	globalInformation* get_global_info(){$/;"	f	class:maaserver::maaService
+get_int32	message.h	/^	inline int get_int32(char** data, int32_t* len, int32_t* value)$/;"	f	class:maaserver::message
+get_int64	message.h	/^	inline int get_int64(char** data, int32_t* len, int64_t* value)$/;"	f	class:maaserver::message
+get_int_value	config.cpp	/^    	int configure::get_int_value(const int section, const std::string& key, const int d) {$/;"	f	class:maaserver::configure
+get_lan	func.cpp	/^    uint32_t Func::get_lan(const uint64_t ipport, const uint32_t ipmask)$/;"	f	class:maaserver::Func
+get_load_avg	func.cpp	/^    int Func::get_load_avg()$/;"	f	class:maaserver::Func
+get_local_addr	func.cpp	/^    uint32_t Func::get_local_addr(const char* dev_name)$/;"	f	class:maaserver::Func
+get_object	message.h	/^	inline int get_object(char** data, int32_t* len, void** object, int32_t obj_len)$/;"	f	class:maaserver::message
+get_object_copy	message.h	/^	inline int get_object_copy(char** data, int32_t* len, void* object, int32_t obj_len)$/;"	f	class:maaserver::message
+get_packet_queue_thread	maaservice.h	/^	maanet::packetQueueThread* get_packet_queue_thread(){$/;"	f	class:maaserver::maaService
+get_string	message.h	/^	inline int get_string(char** data, int32_t* len, char** value)$/;"	f	class:maaserver::message
+get_string_len	message.h	/^	inline int get_string_len(const char* value) const$/;"	f	class:maaserver::message
+get_string_value	config.cpp	/^    	char* configure::get_string_value(const int section, const std::string& key, char *d) {$/;"	f	class:maaserver::configure
+get_uint32	message.h	/^	inline int get_uint32(char** data, int32_t* len, uint32_t* value)$/;"	f	class:maaserver::message
+get_vint32	message.h	/^	inline int get_vint32(char** data, int32_t* len, common::VUINT32& value)$/;"	f	class:maaserver::message
+get_vint64	message.h	/^	inline int get_vint64(char** data, int32_t* len, common::VUINT64& value)$/;"	f	class:maaserver::message
+get_vint64_len	message.h	/^	inline int get_vint64_len(common::VUINT64& value) const$/;"	f	class:maaserver::message
+get_vint_len	message.h	/^	inline int get_vint_len(const common::VUINT32& value) const$/;"	f	class:maaserver::message
+globalInformation	globalInformation.h	/^struct globalInformation {$/;"	s	namespace:maaserver
+global_info	maaservice.h	/^	globalInformation global_info;$/;"	m	class:maaserver::maaService
+handlePacket	maaservice.cpp	/^	maanet::packetHandler::HPRetCode maaService::handlePacket(maanet::connection *_connection, maanet::packet *_packet) {$/;"	f	class:maaserver::maaService
+handlePacketQueue	maaservice.cpp	/^	bool  maaService::handlePacketQueue(maanet::packet *_packet,void *) {$/;"	f	class:maaserver::maaService
+hash	define.h	/^  template<> struct hash<uint64_t>$/;"	s	namespace:__gnu_cxx
+hour_range	func.cpp	/^  bool Func::hour_range(int min, int max)$/;"	f	class:maaserver::Func
+initGlobalInfo	maaservice.cpp	/^	int maaService::initGlobalInfo() {$/;"	f	class:maaserver::maaService
+initHandleThreads	maaservice.cpp	/^	void maaService::initHandleThreads() {$/;"	f	class:maaserver::maaService
+ipPort	globalInformation.h	/^	char 	ipPort[32];$/;"	m	struct:maaserver::globalInformation
+ip_	define.h	/^      uint32_t ip_;$/;"	m	struct:maaserver::IpAddr
+isLoad	config.h	/^      	bool isLoad;$/;"	m	class:maaserver::configure
+is_local_addr	func.cpp	/^    int Func::is_local_addr(const uint32_t ip)$/;"	f	class:maaserver::Func
+load	config.cpp	/^	int configure::load(const std::string& filename) {$/;"	f	class:maaserver::configure
+maaPacketStreamer	packetstreamer.cpp	/^	maaPacketStreamer::maaPacketStreamer(){$/;"	f	class:maaserver::maaPacketStreamer
+maaPacketStreamer	packetstreamer.cpp	/^	maaPacketStreamer::maaPacketStreamer(maanet::packetFactory* factory) :$/;"	f	class:maaserver::maaPacketStreamer
+maaPacketStreamer	packetstreamer.h	/^class maaPacketStreamer: public maanet::packetStreamer{$/;"	c	namespace:maaserver
+maaServer	maaserver.cpp	/^	maaServer::maaServer(){$/;"	f	class:maaserver::maaServer
+maaServer	maaserver.h	/^class maaServer$/;"	c	namespace:maaserver
+maaService	maaservice.cpp	/^	maaService::maaService() {$/;"	f	class:maaserver::maaService
+maaService	maaservice.h	/^class maaService: public maanet::serverAdapter, public maanet::packetQueueHandler, public maasys::runnable {$/;"	c	namespace:maaserver
+maaserver	config.cpp	/^namespace maaserver $/;"	n	file:
+maaserver	config.h	/^namespace maaserver $/;"	n
+maaserver	define.h	/^namespace maaserver $/;"	n
+maaserver	func.cpp	/^namespace maaserver $/;"	n	file:
+maaserver	func.h	/^namespace maaserver $/;"	n
+maaserver	globalInformation.h	/^namespace maaserver$/;"	n
+maaserver	interval.h	/^namespace maaserver$/;"	n
+maaserver	maaserver.cpp	/^namespace maaserver$/;"	n	file:
+maaserver	maaserver.h	/^namespace maaserver$/;"	n
+maaserver	maaservice.cpp	/^namespace maaserver$/;"	n	file:
+maaserver	maaservice.h	/^namespace maaserver$/;"	n
+maaserver	message.h	/^namespace maaserver $/;"	n
+maaserver	packetstreamer.cpp	/^namespace maaserver $/;"	n	file:
+maaserver	packetstreamer.h	/^namespace maaserver $/;"	n
+main	maaserver.cpp	/^int main(int argc , char *argv[])$/;"	f
+make_directory	func.cpp	/^    int Func::make_directory(char* dirpath)$/;"	f	class:maaserver::Func
+message	message.h	/^	message() :$/;"	f	class:maaserver::message
+message	message.h	/^class message: public maanet::packet$/;"	c	namespace:maaserver
+message_handler_t	message.h	/^	typedef message* (*message_handler_t)(int32_t);$/;"	t	namespace:maaserver
+objects	makefile	/^objects = maaserver.o maaservice.o packetstreamer.o transport.o epollsocketevent.o tcpcomponent.o tcpaccepter.o tcpconnection.o iocomponent.o serversocket.o socketevent.o connection.o socket.o packetqueuethread.o packetqueue.o packet.o defaultrunnable.o netutil.o parameter.o timeutil.o config.o func.o log.o warningBuffer.o $/;"	m
+operator ()	define.h	/^    uint64_t operator()(uint64_t __x) const$/;"	f	struct:__gnu_cxx::hash
+parse_special_ds	message.h	/^	static bool parse_special_ds(common::VUINT64& ds, int32_t& version, int32_t& lease)$/;"	f	class:maaserver::message
+parse_value	config.cpp	/^    	int configure::parse_value(char* str, char* key, char* val){$/;"	f	class:maaserver::configure
+pattern	globalInformation.h	/^	int 	pattern;$/;"	m	struct:maaserver::globalInformation
+port_	define.h	/^      int32_t port_;$/;"	m	struct:maaserver::IpAddr
+raw_data_	message.h	/^	char* raw_data_;$/;"	m	class:maaserver::message
+raw_size_	message.h	/^	int32_t raw_size_;$/;"	m	class:maaserver::message
+read_task_queue_size_	maaservice.h	/^	int32_t read_task_queue_size_;$/;"	m	class:maaserver::maaService
+replyMessage	message.h	/^	inline void replyMessage(message* _message){$/;"	f	class:maaserver::message
+run	maaservice.cpp	/^	void maaService::run(maasys::cThread *thread, void *arg) {$/;"	f	class:maaserver::maaService
+safe_malloc	func.cpp	/^  char* Func::safe_malloc(const int32_t len, char* data)$/;"	f	class:maaserver::Func
+setAppID	message.h	/^	inline void setAppID(const int32_t id){$/;"	f	class:maaserver::message
+setAutoFree	message.h	/^	inline void setAutoFree(bool auto_free){$/;"	f	class:maaserver::message
+setConnection	message.h	/^	inline void setConnection(maanet::connection* _connection){$/;"	f	class:maaserver::message
+setDataLen	message.h	/^	inline void setDataLen(const int32_t len){$/;"	f	class:maaserver::message
+setMessageType	message.h	/^	inline void setMessageType(const int32_t type){$/;"	f	class:maaserver::message
+setUserID	message.h	/^	inline void setUserID(const int32_t id){$/;"	f	class:maaserver::message
+set_int32	message.h	/^	inline int set_int32(char** data, int32_t* len, int32_t status_)$/;"	f	class:maaserver::message
+set_int64	message.h	/^	inline int set_int64(char** data, int32_t* len, int64_t value)$/;"	f	class:maaserver::message
+set_object	message.h	/^	inline int set_object(char** data, int32_t* len, void* value, int32_t length)$/;"	f	class:maaserver::message
+set_packet_factory	packetstreamer.cpp	/^	void maaPacketStreamer::set_packet_factory(maanet::packetFactory* factory){$/;"	f	class:maaserver::maaPacketStreamer
+set_string	message.h	/^	inline int set_string(char** data, int32_t* len, char* str_)$/;"	f	class:maaserver::message
+set_vint32	message.h	/^	inline int32_t set_vint32(char** data, int32_t* len, common::VUINT32& value)$/;"	f	class:maaserver::message
+set_vint64	message.h	/^	inline int set_vint64(char** data, int32_t* len, common::VUINT64& value)$/;"	f	class:maaserver::message
+sleep	func.cpp	/^  void Func::sleep(const float f_heart_interval, const int32_t* stop)$/;"	f	class:maaserver::Func
+split_string	func.cpp	/^  int32_t Func::split_string(const char* line, const char del, std::vector<std::string>& fields)$/;"	f	class:maaserver::Func
+start	maaserver.cpp	/^	void maaServer::start(){$/;"	f	class:maaserver::maaServer
+start	maaservice.cpp	/^	int maaService::start() {$/;"	f	class:maaserver::maaService
+stop	maaserver.cpp	/^	void maaServer::stop(){$/;"	f	class:maaserver::maaServer
+stop	maaservice.cpp	/^	int maaService::stop() {$/;"	f	class:maaserver::maaService
+str_to_addr	func.cpp	/^    uint64_t Func::str_to_addr(const char* ip, const int32_t port)$/;"	f	class:maaserver::Func
+str_to_lower	func.cpp	/^	char* Func::str_to_lower(char* psz_buf){$/;"	f	class:maaserver::Func
+str_to_upper	func.cpp	/^    char* Func::str_to_upper(char* psz_buf)$/;"	f	class:maaserver::Func
+streamer_	maaservice.h	/^      	maaPacketStreamer streamer_;$/;"	m	class:maaserver::maaService
+subright	func.cpp	/^  char* Func::subright(char* dst, char* src, int32_t n)$/;"	f	class:maaserver::Func
+taskQueueThread_	maaservice.h	/^	maanet::packetQueueThread taskQueueThread_;$/;"	m	class:maaserver::maaService
+time_to_str	func.cpp	/^  string Func::time_to_str(time_t t, int f)$/;"	f	class:maaserver::Func
+transport_	maaservice.h	/^	maanet::transport transport_;$/;"	m	class:maaserver::maaService
+wait	maaservice.cpp	/^	int maaService::wait() {$/;"	f	class:maaserver::maaService
+write_pid	func.cpp	/^  int Func::write_pid(const char* lock_file)$/;"	f	class:maaserver::Func
+write_task_queue_size_	maaservice.h	/^	int32_t write_task_queue_size_;$/;"	m	class:maaserver::maaService
+~configure	config.cpp	/^    	configure::~configure() {$/;"	f	class:maaserver::configure
+~maaPacketStreamer	packetstreamer.cpp	/^	maaPacketStreamer::~maaPacketStreamer(){$/;"	f	class:maaserver::maaPacketStreamer
+~maaServer	maaserver.cpp	/^	maaServer::~maaServer(){$/;"	f	class:maaserver::maaServer
+~maaService	maaservice.cpp	/^	maaService::~maaService() {$/;"	f	class:maaserver::maaService
+~message	message.h	/^	~message() {$/;"	f	class:maaserver::message

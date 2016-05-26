@@ -1,0 +1,23 @@
+#ifndef MAANET_SERVERSOCKET_H_
+#define MAANET_SERVERSOCKET_H_
+
+namespace maanet {
+
+class serverSocket : public Socket {
+	
+public:		
+	serverSocket();
+	~serverSocket();
+	
+	Socket *accept();
+
+	bool listen();
+
+private:
+	int backLog;	
+};
+
+}//namespace maanet
+
+#endif//MAANET_SERVERSOCKET_H_
+

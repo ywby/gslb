@@ -1,0 +1,201 @@
+
+#include "maanet.h"
+
+namespace maanet {
+
+connection::connection(Socket *socket, packetStreamer *streamer, serverAdapter *serverAdapter_, bool appTcp) {
+    _socket = socket;
+    _streamer = streamer;
+    _serverAdapter = serverAdapter_;
+    _defaultPacketHandler = NULL;
+    _iocomponent = NULL;
+    _queueTimeout = 5000;
+    _queueLimit = 50;
+    _queueTotalSize = 0;
+
+    _gotFirst = true;         
+    _appTcp = appTcp; 
+}
+
+connection::~connection() {
+    disconnect();
+    _socket = NULL;
+    _iocomponent = NULL;
+}
+
+void connection::disconnect() {
+    _outputCond.lock();
+    _myQueue.moveTo(&_outputQueue);
+    _outputCond.unlock();
+    //checkTimeout(TBNET_MAX_TIME);
+}
+
+bool connection::postPacket(packet *packet, packetHandler *_packetHandler, void *args, bool noblocking) {
+	if (!isConnectState()) {
+    	if (_iocomponent == NULL ||  _iocomponent->isAutoReconn() == false) {
+        		return false;
+        } else if (_outputQueue.size()>10) {
+            	return false;
+        } else {
+            tcpComponent *ioc = dynamic_cast<tcpComponent*>(_iocomponent);
+            bool ret = false;
+            if (ioc != NULL) {
+            	_outputCond.lock();
+            	ret = ioc->init(false);
+            	_outputCond.unlock();
+            }
+
+            if (!ret) 
+                return false;
+        }
+    }
+    
+	// 如果是client, 并且有queue长度的限制
+    _outputCond.lock();
+    _queueTotalSize = _outputQueue.size()  + _myQueue.size();
+	if (!_isServer && _queueLimit > 0 && noblocking && _queueTotalSize >= _queueLimit) {
+    	_outputCond.unlock();
+    	return false;
+    }
+    _outputCond.unlock();
+	
+	packet->setExpireTime(_queueTimeout);           // 设置超时
+	
+	_outputCond.lock();
+	MAASYS_LOG(DEBUG, "header: type =%d, datalen =%d,appID =%d, userID =%d", (packet->_packetHeader).type, (packet->_packetHeader).dataLen,(packet->_packetHeader).appID,(packet->_packetHeader).userID);	
+	// 写入到outputqueue中
+	_outputQueue.push(packet);
+	if (_iocomponent != NULL && _outputQueue.size() == 1U) {
+		_iocomponent->enableWrite(true);
+	}
+	
+	_outputCond.unlock();
+	if (!_isServer && _queueLimit > 0) {
+		_outputCond.lock();
+
+		_queueTotalSize = _outputQueue.size()  + _myQueue.size();
+
+		if ( _queueTotalSize > _queueLimit && noblocking == false) {
+			bool *stop = NULL;
+			if (_iocomponent && _iocomponent->getOwner()) {
+				stop = _iocomponent->getOwner()->getStop();
+			}
+			while (_queueTotalSize > _queueLimit && stop && *stop == false) {
+				if (_outputCond.wait(1000) == false) {
+					if (!isConnectState()) {
+						break;
+					}
+					_queueTotalSize = _outputQueue.size()  + _myQueue.size();
+				}
+			}
+		}
+		_outputCond.unlock();
+	}
+
+	if (_isServer && _iocomponent) {
+		_iocomponent->subRef();
+	}
+
+	return true;
+}
+
+
+bool connection::handlePacket(dataBuffer *input, packetHeader *header) {
+	packet *_packet;
+	_packet = _streamer->decode(input, header);
+	if (_packet == NULL) {
+		return false;	
+	} 
+        
+	if (_iocomponent) {
+	   _iocomponent->addRef();
+   	} 
+
+	MAASYS_LOG(DEBUG, "header: type =%d, datalen =%d,appID =%d, userID =%d", header->type, header->dataLen,header->appID,header->userID);
+	MAASYS_LOG(DEBUG, "packet type =%d, datalen =%d,appID =%d, userID =%d", _packet->_packetHeader.type, _packet->_packetHeader.dataLen,_packet->_packetHeader.appID,_packet->_packetHeader.userID);
+
+	_serverAdapter->handlePacket(this, _packet);
+    	
+	return true;
+}
+
+/*
+ * 检查超时
+ */
+/*
+bool connection::checkTimeout(int64_t now) {
+    // 得到超时的channel的list
+    Channel *list = _channelPool.getTimeoutList(now);
+    Channel *channel = NULL;
+    IPacketHandler *packetHandler = NULL;
+
+    if (list != NULL) {
+        if (!_isServer) { // client endpoint, 给每个channel发一个超时packet, 服务器端把channel回收
+            channel = list;
+            while (channel != NULL) {
+                packetHandler = channel->getHandler();
+                if (packetHandler == NULL) {    // 用默认的
+                    packetHandler = _defaultPacketHandler;
+                }
+                // 回调
+                if (packetHandler != NULL) {
+                    packetHandler->handlePacket(&ControlPacket::TimeoutPacket, channel->getArgs());
+                    channel->setArgs(NULL);
+                }
+                channel = channel->getNext();
+            }
+        }
+        // 加到freelist中
+        _channelPool.appendFreeList(list);
+    }
+
+    // 对PacketQueue超时检查
+    _outputCond.lock();
+    Packet *packetList = _outputQueue.getTimeoutList(now);
+    _outputCond.unlock();
+    while (packetList) {
+        Packet *packet = packetList;
+        packetList = packetList->getNext();
+        channel = packet->getChannel();
+        packet->free();
+        if (channel) {
+            packetHandler = channel->getHandler();
+            if (packetHandler == NULL) {    // 用默认的
+                packetHandler = _defaultPacketHandler;
+            }
+            // 回调
+            if (packetHandler != NULL) {
+                packetHandler->handlePacket(&ControlPacket::TimeoutPacket, channel->getArgs());
+                channel->setArgs(NULL);
+            }
+            _channelPool.freeChannel(channel);
+        }
+    }
+
+    // 如果是client, 并且有queue长度的限制
+    if (!_isServer && _queueLimit > 0 &&  _queueTotalSize > _queueLimit) {
+        _outputCond.lock();
+        _queueTotalSize = _outputQueue.size() + _channelPool.getUseListCount() + _myQueue.size();
+        if (_queueTotalSize <= _queueLimit) {
+            _outputCond.broadcast();
+        }
+        _outputCond.unlock();
+    }
+
+    return true;
+}
+*/
+
+/**
+ * 连接状态
+ */
+bool connection::isConnectState() {
+	if (_iocomponent != NULL) {
+        return _iocomponent->isConnectState();
+    }
+
+    return false;
+}
+}//namespace maanet
+
+

@@ -1,0 +1,65 @@
+#ifndef MAANET_TRANSPORT_H_
+#define MAANET_TRANSPORT_H_
+
+namespace maanet {
+
+class transport : public maasys::runnable {
+
+public:
+	transport();
+	~transport();
+	
+	bool start();
+
+	bool stop();
+	
+	bool wait();
+
+	void run(maasys::cThread *thread ,void *arg);
+
+	ioComponent *listen(const char *spec , packetStreamer *streamer, serverAdapter *_serverAdapter);
+	
+	connection *connect(const char *spec, packetStreamer *streamer, bool autoReconn = false, bool appTcp = false);
+
+	bool disconnect(connection *conn);
+    
+	void addComponent(ioComponent *ioc, bool readOn, bool writeOn);
+    
+	void removeComponent(ioComponent *ioc);
+    
+	bool* getStop();
+
+private:    
+	int splitAddr(char *src, char **args, int cnt);
+
+	void eventLoop(socketEvent *socketEvent);
+
+	void timeoutLoop();
+
+	void destroy();
+
+public:
+	std::map<int, connection *> socketConnMap; 
+
+private:
+	epollSocketEvent _socketEvent;
+
+	maasys::cThread _readWriteThread;
+	maasys::cThread _timeoutThread;
+
+	bool _stop;
+
+	ioComponent *_delListHead, *_delListTail;
+	ioComponent *_iocListHead, *_iocListTail;
+
+	bool _iocListChanged;
+	int _iocListCount;
+
+	maasys::threadMutex _iocMutex;
+	//std::map<int, connection *> socketConnMap; 
+};	
+
+}//namespace maanet
+
+#endif//MAANET_TRANSPORT_H_
+

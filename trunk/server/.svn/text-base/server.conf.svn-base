@@ -1,0 +1,10 @@
+[SERVER]
+ip = 192.168.58.128
+port = 808
+pattern = 1
+log_size = 1073741824 
+log_level = debug
+loh_num  = 1
+log_path=/home/tfs/maa.log
+[APP]
+100 =  1.1.1.1:80
