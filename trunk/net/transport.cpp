@@ -106,7 +106,7 @@ void transport::removeComponent(ioComponent *ioc) {
 	_iocListCount --;
 
 	//SYS_LOG(INFO, "RMIOC, %s IOCount:%d, IOC:%p\n", 
-		        ioc->getSocket()->getAddr().c_str(), _iocListCount, ioc);
+    //		        ioc->getSocket()->getAddr().c_str(), _iocListCount, ioc);
 }
 
 ioComponent *transport::listen(const char *spec, packetStreamer *streamer, serverAdapter *_serverAdapter) {

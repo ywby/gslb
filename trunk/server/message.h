@@ -1,5 +1,5 @@
-#ifndef MAASERVER_MESSAGE_H_
-#define MAASERVER_MESSAGE_H_
+#ifndef SERVER_MESSAGE_H_
+#define SERVER_MESSAGE_H_
 
 #include "define.h"
 
@@ -21,7 +21,7 @@ namespace server {
 	typedef CREATE_MESSAGE_MAP::iterator CREATE_MESSAGE_MAP_ITER;
 #endif
 
-static const uint32_t MAA_PACKET_HEADER_SIZE = sizeof(net::packetHeader);
+static const uint32_t PACKET_HEADER_SIZE = sizeof(net::packetHeader);
 
 class message: public net::packet {
 
@@ -41,11 +41,11 @@ public:
 		gDeleteA(raw_data_);	
 	} 
 	
-	inline void setConnection(maanet::connection* _connection) {
+	inline void setConnection(net::connection* _connection) {
 		connection_ = _connection;
 	}
 
-	inline maanet::connection* getConnection() const {
+	inline net::connection* getConnection() const {
 		return connection_;
 	}
 
@@ -82,7 +82,7 @@ public:
 		return _packetHeader.type;
 	}
 
-	inline bool encode(maanet::dataBuffer* output) {
+	inline bool encode(net::dataBuffer* output) {
 		if ((raw_size_ <= 0) || (raw_data_ == NULL)) {
 			return false;
 		}
@@ -111,17 +111,17 @@ public:
 		memcpy(raw_data_, data, size);
 		input->drainData(size);
 
-		//MAASYS_LOG(DEBUG, "header: type =%d, datalen =%d,appID =%d, userID =%d,raw_data_=%s", 
+		//SYS_LOG(DEBUG, "header: type =%d, datalen =%d,appID =%d, userID =%d,raw_data_=%s", 
 		//header->type, header->dataLen,header->appID,header->userID, raw_data_);
 
 		return true;	
 	}
 
 	inline void replyMessage(message* _message) {
-		MAASYS_LOG(DEBUG, "raw_data_=%s", _message->raw_data_);
+		SYS_LOG(DEBUG, "raw_data_=%s", _message->raw_data_);
 
 		if (connection_->postPacket(_message) == false) {
-		    MAASYS_LOG(DEBUG, "delete raw_data_=%s", _message->raw_data_);
+		    SYS_LOG(DEBUG, "delete raw_data_=%s", _message->raw_data_);
 			delete _message;
 			return;
 		}
@@ -152,7 +152,7 @@ public:
 	int32_t raw_size_;
 
 protected:
-	maanet::connection* connection_;
+	net::connection* connection_;
 	bool auto_free_;
 
 #ifdef FLAG	
@@ -470,8 +470,8 @@ protected:
 #endif
 	};
 
-}//namespace maaserver
+}//namespace server
 
-#endif//MAASERVER_MESSAGE_H_ 
+#endif//SERVER_MESSAGE_H_ 
 
 

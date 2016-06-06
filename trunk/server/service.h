@@ -21,9 +21,9 @@ public:
     int wait();
 
 public:
-	net::packetHandler::HPRetCode handlePacket(maanet::connection *_connection,  maanet::packet *_packet);
+	net::packetHandler::HPRetCode handlePacket(net::connection *_connection,  net::packet *_packet);
     
-    bool handlePacketQueue(maanet::packet *_packet, void *args);
+    bool handlePacketQueue(net::packet *_packet, void *args);
 
 	globalInformation* get_global_info() 
     {

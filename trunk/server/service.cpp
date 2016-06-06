@@ -17,12 +17,12 @@ service::~service()
 {
 }
 
-void service::run(maasys::cThread *thread, void *arg) 
+void service::run(sys::cThread *thread, void *arg) 
 {
 	std::cout<<"hello"<<endl;	
 }	
 
-net::packetHandler::HPRetCode service::handlePacket(maanet::connection *_connection, maanet::packet *_packet) 
+net::packetHandler::HPRetCode service::handlePacket(net::connection *_connection, net::packet *_packet) 
 {
 	if (_connection == NULL || _packet == NULL) 
     {
@@ -85,14 +85,14 @@ net::packetHandler::HPRetCode service::handlePacket(maanet::connection *_connect
 		std::cout << "msg error" <<std::endl;	
 	}
 	
-	return maanet::packetHandler::KEEP_CHANNEL;	
+	return net::packetHandler::KEEP_CHANNEL;	
 }	
 	
 bool service::handlePacketQueue(net::packet *_packet,void *) 
 {
   	bool  ret = true;
 	std::map<int, char *>::iterator it_m;
-	std::map<char *, maanet::connection *>::iterator it_n;
+	std::map<char *, net::connection *>::iterator it_n;
     
     int type =  _packet->_packetHeader.type;	
 
@@ -115,18 +115,18 @@ bool service::handlePacketQueue(net::packet *_packet,void *)
 		case 3: {
             SYS_LOG(DEBUG, "TCP data is coming... : appid =%d", _message->getAppID());
 			//与源建立连接
-			maanet::connection *oldConn =  _message->getConnection();	
+			net::connection *oldConn =  _message->getConnection();	
 
 			it_m = appidSourceMap.find(_message->getAppID());	
 			if (it_m != appidSourceMap.end()) {
-				maanet::connection *_conn = transport_.connect(it_m->second, &streamer_, false, false); 
+				net::connection *_conn = transport_.connect(it_m->second, &streamer_, false, false); 
 				if (_conn != NULL) {
 					_conn->userID = _message->getUserID();	
 					_conn->appID = _message->getAppID();	
 				    
-                    MAASYS_LOG(DEBUG, "create a success connection : addr =%s ", (it_m->second));	
+                    SYS_LOG(DEBUG, "create a success connection : addr =%s ", (it_m->second));	
 
-					transport_.socketConnMap.insert(map<int ,maanet::connection *>::value_type(_message->getUserID(),oldConn));	
+					transport_.socketConnMap.insert(map<int ,net::connection *>::value_type(_message->getUserID(),oldConn));	
 				} else {
                     SYS_LOG(ERROR, "create a fail connection    : addr =%s ", (it_m->second));	
 				}	
@@ -170,7 +170,7 @@ bool service::handlePacketQueue(net::packet *_packet,void *)
 		break;
 	}	
 	default: {
-		MAASYS_LOG(ERROR, "process packet: AppID %d, UserID %d, type: %d\n", 
+		SYS_LOG(ERROR, "process packet: AppID %d, UserID %d, type: %d\n", 
 			   _message->getAppID(), _message->getUserID(), _message->getMessageType());
 		ret = false;
 		break;
@@ -187,7 +187,7 @@ int service::initGlobalInfo()
 	int32_t port = CONFIG.get_int_value(CONFIG_SERVER_INT, "port", 0);
 
 	if (ip == NULL || port <= 0 || (pattern != 1 && pattern != 2 && pattern != 3)){
-		return MAA_ERROR;	
+		return ERROR;	
 	}	
 	
 	sprintf(global_info.ipPort, "tcp:%s:%d", ip,port);
@@ -195,16 +195,15 @@ int service::initGlobalInfo()
 	global_info.configServerMap = CONFIG.getConfigMap(CONFIG_SERVER_INT);
 	global_info.configAppMap = CONFIG.getConfigMap(CONFIG_APP_INT);
 	
-	return MAA_SUCCESS;
+	return SUCCESS;
 }
 
 int service::start() 
 {
-	int ret = MAA_SUCCESS;
-	int  appID;
+	int ret = SUCCESS;
 	char spec[32];
 		
-	if (initGlobalInfo() != MAA_SUCCESS) 
+	if (initGlobalInfo() != SUCCESS) 
     {
 		SYS_LOG(ERROR,"initGlobalInfo() is error");	
 		return ERROR;

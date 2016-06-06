@@ -2,114 +2,94 @@ CC = g++ -g  -lrt
 
 CXXFLAGS =  -O2 -Wall -Wno-deprecated  
 
-MAANET = ../net
+NET = ../net
 
-MAASYS = ../sys
+SYS = ../sys
 
-objects = server.o service.o packetstreamer.o transport.o epollsocketevent.o tcpcomponent.o tcpaccepter.o tcpconnection.o iocomponent.o serversocket.o socketevent.o connection.o socket.o packetqueuethread.o packetqueue.o packet.o defaultrunnable.o netutil.o parameter.o timeutil.o config.o func.o log.o warningBuffer.o 
+objects =service.o transport.o tcpcomponent.o tcpaccepter.o tcpconnection.o iocomponent.o epollsocketevent.o	serversocket.o	socket.o socketevent.o connection.o  packetqueuethread.o packetqueue.o packet.o  timeutil.o defaultrunnable.o netutil.o log.o warningBuffer.o
 
 all : tcp_server 
-
-tcp_server : $(objects)  
-	$(CC)  $(objects)    -lpthread \
-	-o tcp_server 
-
-server.o : server.cpp   
-	$(CC) $(CXXFLAGS) \
-	-c server.cpp  
 
 service.o : service.cpp   
 	$(CC) $(CXXFLAGS) \
 	-c service.cpp  
 
-packetstreamer.o : packetstreamer.cpp 
-	$(CC) $(CXXFLAGS)  \
-	-c packetstreamer.cpp  
+tcp_server : $(objects)  
+	$(CC)  $(objects)    -lpthread \
+	-o tcp_server 
 
-transport.o : $(MAANET)/transport.cpp 
+transport.o : $(NET)/transport.cpp 
 	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/transport.cpp  
+	-c $(NET)/transport.cpp  
 
-epollsocketevent.o : $(MAANET)/epollsocketevent.cpp 
+tcpcomponent.o : $(NET)/tcpcomponent.cpp 
 	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/epollsocketevent.cpp  
+	-c $(NET)/tcpcomponent.cpp  
 
-tcpcomponent.o : $(MAANET)/tcpcomponent.cpp 
+tcpaccepter.o : $(NET)/tcpaccepter.cpp 
 	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/tcpcomponent.cpp  
+	-c $(NET)/tcpaccepter.cpp  
 
-tcpaccepter.o : $(MAANET)/tcpaccepter.cpp 
+tcpconnection.o : $(NET)/tcpconnection.cpp 
 	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/tcpaccepter.cpp  
+	-c $(NET)/tcpconnection.cpp  
 
-tcpconnection.o : $(MAANET)/tcpconnection.cpp 
+connection.o : $(NET)/connection.cpp  
 	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/tcpconnection.cpp  
+	-c $(NET)/connection.cpp  
 
-iocomponent.o : $(MAANET)/iocomponent.cpp  
+iocomponent.o : $(NET)/iocomponent.cpp  
 	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/iocomponent.cpp  
+	-c $(NET)/iocomponent.cpp  
 
-connection.o : $(MAANET)/connection.cpp  
+serversocket.o :$(NET)/serversocket.cpp  
 	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/connection.cpp  
+	-c $(NET)/serversocket.cpp 	
 
-socketevent.o :$(MAANET)/socketevent.cpp  
-	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/socketevent.cpp 	
-
-serversocket.o :$(MAANET)/serversocket.cpp  
-	$(CC) $(CXXFLAGS)  \
-	-c $(MAANET)/serversocket.cpp 	
-
-socket.o :$(MAANET)/socket.cpp   
+socket.o :$(NET)/socket.cpp   
 	$(CC) $(CXXFLAGS) \
-	-c $(MAANET)/socket.cpp  
+	-c $(NET)/socket.cpp  
 
-packetqueuethread.o :$(MAANET)/packetqueuethread.cpp   
+packetqueuethread.o :$(NET)/packetqueuethread.cpp   
 	$(CC) $(CXXFLAGS) \
-	-c $(MAANET)/packetqueuethread.cpp  
+	-c $(NET)/packetqueuethread.cpp  
 
-packetqueue.o :$(MAANET)/packetqueue.cpp   
+packetqueue.o :$(NET)/packetqueue.cpp   
 	$(CC) $(CXXFLAGS) \
-	-c $(MAANET)/packetqueue.cpp  
+	-c $(NET)/packetqueue.cpp  
 
-packet.o :$(MAANET)/packet.cpp   
+packet.o :$(NET)/packet.cpp   
 	$(CC) $(CXXFLAGS) \
-	-c $(MAANET)/packet.cpp  
+	-c $(NET)/packet.cpp  
 
-defaultrunnable.o :$(MAASYS)/defaultrunnable.cpp   
-	$(CC) $(CXXFLAGS) \
-	-c $(MAASYS)/defaultrunnable.cpp  
-	
-netutil.o :$(MAASYS)/netutil.cpp   
-	$(CC) $(CXXFLAGS) \
-	-c $(MAASYS)/netutil.cpp 
- 
-parameter.o :$(MAASYS)/parameter.cpp   
-	$(CC) $(CXXFLAGS) \
-	-c $(MAASYS)/parameter.cpp 
+socketevent.o :$(NET)/socketevent.cpp  
+	$(CC) $(CXXFLAGS)  \
+	-c $(NET)/socketevent.cpp 	
 
-timeutil.o :$(MAASYS)/timeutil.cpp   
+epollsocketevent.o : $(NET)/epollsocketevent.cpp 
+	$(CC) $(CXXFLAGS)  \
+	-c $(NET)/epollsocketevent.cpp  
+
+timeutil.o :$(SYS)/timeutil.cpp   
 	$(CC)  $(CXXFLAGS) \
-	-c -lrt $(MAASYS)/timeutil.cpp  
+	-c -lrt $(SYS)/timeutil.cpp  
 
-config.o :config.cpp   
-	$(CC)  $(CXXFLAGS) \
-	-c  config.cpp  
+defaultrunnable.o :$(SYS)/defaultrunnable.cpp   
+	$(CC) $(CXXFLAGS) \
+	-c $(SYS)/defaultrunnable.cpp  
 
-func.o :func.cpp   
-	$(CC)  $(CXXFLAGS) \
-	-c  func.cpp  
+netutil.o :$(SYS)/netutil.cpp   
+	$(CC) $(CXXFLAGS) \
+	-c $(SYS)/netutil.cpp 
 
-log.o :$(MAASYS)/log.cpp   
+log.o :$(SYS)/log.cpp   
 	$(CC)  $(CXXFLAGS) \
-	-c  $(MAASYS)/log.cpp  
+	-c  $(SYS)/log.cpp  
 
-warningBuffer.o :$(MAASYS)/warningBuffer.cpp   
+warningBuffer.o :$(SYS)/warningBuffer.cpp   
 	$(CC)  $(CXXFLAGS) \
-	-c  $(MAASYS)/warningBuffer.cpp  
+	-c  $(SYS)/warningBuffer.cpp  
+
 clean:
 	rm -f $(objects) 
-	rm -f tcp_server 
 

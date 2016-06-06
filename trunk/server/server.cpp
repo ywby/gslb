@@ -70,10 +70,12 @@ int main(int argc , char *argv[])
 	if (pid == 0){
 		signal(SIGPIPE, SIG_IGN);
 		signal(SIGHUP, SIG_IGN);
-
-		//signal(SIGINT, maaserver_signal_handler);
-		//signal(SIGTERM, maaserver_signal_handler);
-		//signal(40, maaserver_signal_handler);
+        
+        /*
+		signal(SIGINT, maaserver_signal_handler);
+		signal(SIGTERM, maaserver_signal_handler);
+		signal(40, maaserver_signal_handler);
+        */
 
 		server* _server = new Server();
 		_server->start();
