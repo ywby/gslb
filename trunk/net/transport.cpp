@@ -36,26 +36,29 @@ bool transport::wait() {
 }
 
 
-int transport::splitAddr(char *src, char **args,int cnt) {
+int transport::splitAddr(char *src, char **args,int cnt) 
+{
 	int index = 0;
 	char *strTmp = src;
 	
-	while (*src) {
-		if (*src == ':') {
+	while (*src) 
+    {
+		if (*src == ':') 
+        {
 			*src = '\0';	
 			args[index++] = strTmp;	
 		
-			if (index >= cnt) {	
+			if (index >= cnt) 
+            {	
 				return index;
 			}
-			
 			strTmp = src + 1;	
 		}
-
 		src++;	
 	}
 
-	if (index < cnt) {	
+	if (index < cnt) 
+    {	
 		args[index++] = strTmp;
 	}	
 	
@@ -109,7 +112,8 @@ void transport::removeComponent(ioComponent *ioc) {
     //		        ioc->getSocket()->getAddr().c_str(), _iocListCount, ioc);
 }
 
-ioComponent *transport::listen(const char *spec, packetStreamer *streamer, serverAdapter *_serverAdapter) {
+ioComponent *transport::listen(const char *spec, packetStreamer *streamer, serverAdapter *_serverAdapter) 
+{
 	char strTmp[512];
 	char *args[32];
 	char *host;
@@ -118,22 +122,26 @@ ioComponent *transport::listen(const char *spec, packetStreamer *streamer, serve
 	strncpy(strTmp, spec, 512);
 	strTmp[511] = '\0';	
 
-	if (splitAddr(strTmp,args,32) !=3) {
+	if (splitAddr(strTmp,args,32) != 3) 
+    {
 		return NULL;	
 	}
 
-	if (strcasecmp(args[0],"tcp") == 0) {
+	if (strcasecmp(args[0],"tcp") == 0) 
+    {
 		host = args[1];
 		port = atoi(args[2]);	
 	
 		serverSocket *socket = new serverSocket();
-		if (!socket->setAddress(host,port)) {
+		if (!socket->setAddress(host,port)) 
+        {
 			delete socket;
 			return NULL;	
 		}
 
 		tcpAccepter *accepter = new tcpAccepter(this ,socket, streamer,_serverAdapter);	
-		if(!accepter->init()){
+		if(!accepter->init())
+        {
 			delete accepter;
 			return NULL;	
 		}
@@ -141,14 +149,16 @@ ioComponent *transport::listen(const char *spec, packetStreamer *streamer, serve
 		addComponent(accepter, true, false);
 
 		return accepter;	
-	} else if (strcasecmp(args[0], "udp") == 0) {
-		;
+	} 
+    else if (strcasecmp(args[0], "udp") == 0) 
+    {   
 	}
 
 	return NULL;
 }
 
-void transport::addComponent(ioComponent *ioc, bool readOn, bool writeOn) {
+void transport::addComponent(ioComponent *ioc, bool readOn, bool writeOn) 
+{
 	_iocMutex.lock();
 	if (ioc->isUsed()) {
 		_iocMutex.unlock();
@@ -173,11 +183,6 @@ void transport::addComponent(ioComponent *ioc, bool readOn, bool writeOn) {
 	Socket *socket = ioc->getSocket();
 	ioc->setSocketEvent(&_socketEvent);
 	_socketEvent.addEvent(socket,readOn,writeOn);
-	
-	tcpComponent *_t = dynamic_cast<tcpComponent *> (ioc);	
-	if (_t != NULL) {	
-		socketConnMap.insert(std::map<int, connection *>::value_type(socket->_socketHandle,_t->_connection));
-	}	
 }
 
 void transport::run(sys::cThread *thread, void *arg) {

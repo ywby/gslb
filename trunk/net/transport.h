@@ -7,7 +7,8 @@ class transport : public sys::runnable {
 
 public:
 	transport();
-	~transport();
+	
+    ~transport();
 	
 	bool start();
 
@@ -37,9 +38,6 @@ private:
 	void timeoutLoop();
 
 	void destroy();
-
-public:
-	std::map<int, connection *> socketConnMap; 
 
 private:
 	epollSocketEvent _socketEvent;

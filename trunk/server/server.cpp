@@ -46,9 +46,7 @@ int main(int argc , char *argv[])
 	if (CONFIG.load(file_name) != SUCCESS) {
 		std::cout<< "config load to fail" <<endl;;		
 		return ERROR;
-	} else {
-		//std::cout<< "config load to succss" <<endl;;		
-	}
+    }
 
 	SYS_LOGGER.setLogLevel(CONFIG.get_string_value(CONFIG_SERVER_INT, (char*)"debug", (char*)"debug"));
 	SYS_LOGGER.setMaxFileSize(CONFIG.get_int_value(CONFIG_SERVER_INT, (char*)"log_size", 0x40000000));
@@ -77,7 +75,7 @@ int main(int argc , char *argv[])
 		signal(40, maaserver_signal_handler);
         */
 
-		server* _server = new Server();
+		server* _server = new server();
 		_server->start();
 
 		///unlink(pid_file.c_str());

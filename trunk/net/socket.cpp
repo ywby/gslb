@@ -4,45 +4,59 @@ namespace net {
 
 sys::threadMutex Socket::_dnsMutex;
 
-Socket::Socket() {
+Socket::Socket() 
+{
 	_socketHandle = -1;	
 }
 
-Socket::~Socket() {
+Socket::~Socket() 
+{
 	close();	
 }
 
-bool Socket::setAddress(const char *address, const int port) {
+bool Socket::setAddress(const char *address, const int port) 
+{
 	memset(static_cast<void *>(&_address),0,sizeof(_address));
 	_address.sin_family = AF_INET;
 	_address.sin_port = htons(static_cast<short>(port));
 
 	bool ret = true;
 
-	if(address == NULL || address[0] == '\0') {
+	if(address == NULL || address[0] == '\0') 
+    {
 		_address.sin_addr.s_addr = htonl(INADDR_ANY);		
-	} else {
+	} 
+    else 
+    {
 		char c;
 		const char *p = address;	
 		bool isIP = true;
 		
-		while((c =(*p++)) != '\0') {
-			if (( c != '.') && (!((c >= '0') && (c <= '9')))) {
+		while((c =(*p++)) != '\0') 
+        {
+			if (( c != '.') && (!((c >= '0') && (c <= '9')))) 
+            {
 				isIP = false;	
 				break;	
 			}	
 		}
 
-		if (isIP) {
+		if (isIP) 
+        {
     		_address.sin_addr.s_addr = inet_addr(address);
-		} else {
+		} 
+        else 
+        {
 			_dnsMutex.lock();
 			
         	struct hostent *myHost = gethostbyname(address);
-			if (myHost != NULL) {
+			if (myHost != NULL) 
+            {
     			memcpy(&(_address.sin_addr), *(myHost->h_addr_list),
            		sizeof(struct in_addr));
-			} else {
+			} 
+            else 
+            {
             	ret = false;
         	}
 
@@ -53,8 +67,10 @@ bool Socket::setAddress(const char *address, const int port) {
 	return ret;
 }
 
-bool Socket::checkSocketHandle() {
-	if (_socketHandle == -1 && (_socketHandle = socket(AF_INET, SOCK_STREAM,0)) == -1) {
+bool Socket::checkSocketHandle() 
+{
+	if (_socketHandle == -1 && (_socketHandle = socket(AF_INET, SOCK_STREAM,0)) == -1) 
+    {
 		return false;	
 	}
 

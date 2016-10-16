@@ -33,57 +33,6 @@ net::packetHandler::HPRetCode service::handlePacket(net::connection *_connection
 	std::map<int, net::connection *>::iterator it_m; 
 
     int type =  _packet->_packetHeader.type;	
-	if ( type == 1) {  	
-		switch (global_info.pattern) {	
-		case 1: {
-            break;
-		}
-		case 2: {
-			break;
-		}
-		case 3: {
-            break;	
-		}
-		default : {
-			std::cout<<"error"<<endl;	
-			break;	
-		}	
-		}	
-	} else if (type  == 2) { 	
-		switch (global_info.pattern) {
-		case 1: {
-			break;	
-		}
-		case 2: {		
-			break;	
-		}
-		case 3: {
-            break;	
-		}
-		default: {
-			std::cout<<"error"<<std::endl;	
-			break;	
-		}
-		}	
-	} else if (type  == 3) { 
-		switch (global_info.pattern) {
-		case 1: {
-            break;	
-		}
-		case 2: {
-			break;
-		}
-		case 3: {
-            break;	
-		}
-		default	: {
-			std::cout<<"error"<<std::endl;	
-			break;	
-		}
-		}
-	} else { 
-		std::cout << "msg error" <<std::endl;	
-	}
 	
 	return net::packetHandler::KEEP_CHANNEL;	
 }	
@@ -182,18 +131,15 @@ bool service::handlePacketQueue(net::packet *_packet,void *)
 
 int service::initGlobalInfo() 
 {
-	int  pattern = CONFIG.get_int_value(CONFIG_SERVER_INT, "pattern", 0);
 	char *ip = CONFIG.get_string_value(CONFIG_SERVER_INT, "ip", NULL);
 	int32_t port = CONFIG.get_int_value(CONFIG_SERVER_INT, "port", 0);
 
-	if (ip == NULL || port <= 0 || (pattern != 1 && pattern != 2 && pattern != 3)){
+	if (ip == NULL || port <= 0 )
+    {
 		return ERROR;	
 	}	
 	
-	sprintf(global_info.ipPort, "tcp:%s:%d", ip,port);
-	global_info.pattern = streamer_.pattern =  pattern;	
-	global_info.configServerMap = CONFIG.getConfigMap(CONFIG_SERVER_INT);
-	global_info.configAppMap = CONFIG.getConfigMap(CONFIG_APP_INT);
+	sprintf(global_info.ipPort, "tcp:%s:%d", ip, port);
 	
 	return SUCCESS;
 }
